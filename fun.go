@@ -3,7 +3,7 @@ package main
 import "fmt"
 import "math"
 
-func add_1(x int, y int) int {
+func Add_1(x int, y int) int {
     return x + y
 }
 
