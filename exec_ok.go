@@ -4,12 +4,14 @@ import "fmt"
 import "bytes"
 import "os/exec"
 func main() {
-	bey , err:= run("/tmp","pwd")
+	bey , err:= run("/tmp","/bin/bash","-c","ls -al")
 	if err != nil {
-		fmt.Printf("return:%s",string(bey))
+		fmt.Printf("return:|%s|",string(bey))
+		println("-----------------")
 		fmt.Printf("err:%s\n",err.Error())
 	}
-	fmt.Printf("return:%s",string(bey))
+	fmt.Printf("return:|%s|",string(bey))
+	println("\r\n-----------------\r\n")
 	fmt.Println("end")
 }
 
