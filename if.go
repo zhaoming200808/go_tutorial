@@ -20,4 +20,14 @@ func main() {
         pow(3, 2, 10) ,
         pow(3, 3, 20),
     )
+
+	m := 0
+
+	if m < 0 {
+		println("lt 0")
+	}else if m > 0{
+		println("gt 0")
+	}else{
+		println("eq 0")
+	}
 }

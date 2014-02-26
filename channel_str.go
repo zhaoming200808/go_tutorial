@@ -54,20 +54,33 @@ func init() {
 }
 
 func main() {
+/*
+* 1 init 
+* 2 conn all host
+* 3 for()
+* 4 # for()
+* 5 # exec cmd or conn host
+* 6 # release the connection 
+* 7 quit
+*
+*/
 
-	all_host := []Host{}
-	var host Host
+	//init
+	all_host := []*Host{}
+	var host *Host
 	var flag string
 	//init
 	for i := 1 ; i <= 10 ; i++ {
 		flag = "f"+ strconv.Itoa(i)
-		host = Host{make(chan string),flag}
-		//host = NewHost(flag)
+		host = NewHost(flag)
 		all_host = append(all_host,host)
 	}
 	fmt.Printf("%v\n",all_host)
 
 	return_value := make(chan Value,1000)
+
+	//conn
+
 
 	//exec 
 	for index, value := range all_host {
@@ -89,6 +102,7 @@ func main() {
 	for{
 		select {
 		case  return_value <- r:
+			println(return_value,"return_value")
 			if r.host_flag_str != "" {
 				fmt.Printf("v :%v\n",r)
 			}else{

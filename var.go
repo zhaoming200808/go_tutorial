@@ -2,8 +2,21 @@ package main
 
 import "fmt"
 
+var g int
+
+func init(){
+	// a := 10
+}
 
 func main() {
+
+	//println(a)
+	g := 10
+
+	println(g)
+	t1()
+	t1()
+	println(g)
 
 	var x, y, z int
 	var c, python, java bool
@@ -19,5 +32,15 @@ func main() {
     fmt.Println(x2, y2, z2, c2, python2, java2)
 
 }
+
+
+func t1(){
+	k := 0
+	k = k+1
+	println(k)
+}
+
+
+
 
 

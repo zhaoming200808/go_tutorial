@@ -49,7 +49,8 @@ func main() {
 	fmt.Println(map_operating_msg)
 
 
-
+	mm := make(map[int]map[int]bool)
+	println(mm)
 
 
 
