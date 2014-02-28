@@ -40,6 +40,7 @@ func ExampleScrape_MetalReview() {
       fmt.Printf("Review %d: %s - %s (%2.1f).\n", i, band, title, score)
     }
   })
+
   // To see the output of the Example while running the test suite (go test), simply
   // remove the leading "x" before Output on the next line. This will cause the
   // example to fail (all the "real" tests should pass).
