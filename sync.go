@@ -2,26 +2,23 @@ package main
 
 import (
     "sync"
+	"time"
 )
 
 var l sync.Mutex
 var a string
 
 func f() {
-    a = "hello, world"
-    print("21,")
-    l.Unlock()
-    print("22,")
+	l.Lock()
+    defer l.Unlock()
+	println("sleep 3 second")
+	time.Sleep(3 * time.Second)
 }
 
-// 1,21,22,2,3,hello, world
 func main() {
-    l.Lock()
-    print("1,")
-    f()
-    print("2,")
-    l.Lock()
-    print("3,")
-    print(a)
+	go f()
+	go f()
+
+	time.Sleep(10 * time.Second)
 }
 

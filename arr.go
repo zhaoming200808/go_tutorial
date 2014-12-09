@@ -3,6 +3,12 @@ package main
 //import "os"
 import "fmt"
 import "strconv"
+
+type S struct {
+}
+
+
+
 func main() {
 	fmt.Printf("Hello, world\n")
 	// arr: 0 - 0

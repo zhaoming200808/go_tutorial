@@ -10,6 +10,6 @@ func main() {
 	fmt.Println(matched, err)
 	matched, err = regexp.MatchString("bar.*", "seafood")
 	fmt.Println(matched, err)
-	matched, err = regexp.MatchString("a(b", "seafood")
+	matched, err = regexp.MatchString("ab", "seafood")
 	fmt.Println(matched, err)
 }
