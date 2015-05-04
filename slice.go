@@ -2,23 +2,33 @@ package main
 
 import "fmt"
 
+type Node struct {
+}
+
+type Tree struct {
+	nodes []Node
+}
+
 func main() {
-    p := []int{2, 3, 5, 7, 11, 13}
+	s_node := []Node{}
+	_ = s_node
 
-    for i := 0; i < len(p); i++ {
-        fmt.Printf("p[%d] == %d\n",
-            i, p[i])
-    }
+	p := []int{2, 3, 5, 7, 11, 13}
 
-    fmt.Println("--------------------------")
-    fmt.Println("p ==", p)
-    fmt.Println("p[1:4] ==", p[1:4])
+	for i := 0; i < len(p); i++ {
+		fmt.Printf("p[%d] == %d\n",
+			i, p[i])
+	}
 
-    // 省略下标代表从 0 开始
-    fmt.Println("p[:3] ==", p[:3])
+	fmt.Println("--------------------------")
+	fmt.Println("p ==", p)
+	fmt.Println("p[1:4] ==", p[1:4])
 
-    // 省略上标代表到 len(s) 结束
-    fmt.Println("p[4:] ==", p[4:])
+	// 省略下标代表从 0 开始
+	fmt.Println("p[:3] ==", p[:3])
+
+	// 省略上标代表到 len(s) 结束
+	fmt.Println("p[4:] ==", p[4:])
 
 	slice_msg := `
 	s[lo:hi]		//表示从 lo 到 hi-1 的 slice 元素
@@ -27,14 +37,14 @@ func main() {
 	`
 	fmt.Println(slice_msg)
 
-    a := make([]int, 5)
-    printSlice("a", a)
-    b := make([]int, 0, 5)
-    printSlice("b", b)
-    c := b[:2]
-    printSlice("c", c)
-    d := c[2:5]
-    printSlice("d", d)
+	a := make([]int, 5)
+	printSlice("a", a)
+	b := make([]int, 0, 5)
+	printSlice("b", b)
+	c := b[:2]
+	printSlice("c", c)
+	d := c[2:5]
+	printSlice("d", d)
 
 	slice_make_msg := `
 	为了指定容量，可传递第三个参数到 'make'：
@@ -46,18 +56,14 @@ func main() {
 	fmt.Println(slice_make_msg)
 
 	var z []int
-    fmt.Println(z, len(z), cap(z))
-    if z == nil {
-        fmt.Println("nil!")
-    }
+	fmt.Println(z, len(z), cap(z))
+	if z == nil {
+		fmt.Println("nil!")
+	}
 
 }
 
 func printSlice(s string, x []int) {
-    fmt.Printf("%s len=%d cap=%d %v\n",
-        s, len(x), cap(x), x)
+	fmt.Printf("%s len=%d cap=%d %v\n",
+		s, len(x), cap(x), x)
 }
-
-
-
-

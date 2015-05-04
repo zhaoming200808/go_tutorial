@@ -1,6 +1,7 @@
 package main
 import "fmt"
 import "time"
+
 func Count(ch chan int) {
 	ch <- 1
 	fmt.Println("Counting")

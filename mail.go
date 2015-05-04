@@ -1,9 +1,10 @@
 package main
+
 import (
-	"net/smtp"
-	"fmt"
-	"strings"
 	"encoding/base64"
+	"fmt"
+	"net/smtp"
+	"strings"
 )
 
 /*
@@ -16,28 +17,27 @@ import (
  *  mailtyoe: mail type html or text
  */
 
-
-func SendMail(user, password, host, to, subject, body, mailtype string) error{
+func SendMail(user, password, host, to, subject, body, mailtype string) error {
 	hp := strings.Split(host, ":")
 	auth := smtp.PlainAuth("", user, password, hp[0])
 	var content_type string
 	if mailtype == "html" {
-		content_type = "Content-Type: text/"+ mailtype + "; charset=UTF-8"
-	}else{
+		content_type = "Content-Type: text/" + mailtype + "; charset=UTF-8"
+	} else {
 		content_type = "Content-Type: text/plain" + "; charset=UTF-8"
 	}
 
-	msg := []byte("To: " + to + "\r\nFrom: " + user + "<"+ user +">\r\nSubject: " + subject + "\r\n" + content_type + "\r\n\r\n" + body)
+	msg := []byte("To: " + to + "\r\nFrom: " + user + "<" + user + ">\r\nSubject: " + subject + "\r\n" + content_type + "\r\n\r\n" + body)
 	send_to := strings.Split(to, ";")
 	err := smtp.SendMail(host, auth, user, send_to, msg)
 	return err
 }
 
 func main() {
-//	user := "zhaoming.14254376@163.com"
+	//	user := "zhaoming.14254376@163.com"
 	user := "zhaoming@hoolai.com"
 	passwd_en := "YzcyM294"
-	p , err := base64.StdEncoding.DecodeString(passwd_en)
+	p, err := base64.StdEncoding.DecodeString(passwd_en)
 	println(err)
 	if err != nil {
 		println("error: conn mail server error")
@@ -45,7 +45,7 @@ func main() {
 	}
 	password := string(p)
 
-//	host := "smtp.163.com:25"
+	//	host := "smtp.163.com:25"
 	host := "smtp.hoolai.com:25"
 	to := "zhaoming200808@gmail.com;zhaoming@hoolai.com"
 
@@ -65,8 +65,7 @@ func main() {
 	if err != nil {
 		fmt.Println("send mail error!")
 		fmt.Println(err)
-	}else{
+	} else {
 		fmt.Println("send mail success!")
 	}
 }
-
